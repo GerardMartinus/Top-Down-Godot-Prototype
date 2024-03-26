@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://xfxk8bvrdaph"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sgprn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 500, 0)
+scale_max = 3.0
+color = Color(0, 0.454902, 0.862745, 0.560784)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0pgmw"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
+[node name="Rain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(428, 221)
+scale = Vector2(500, 500)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_sgprn")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_0pgmw")
